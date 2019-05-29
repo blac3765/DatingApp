@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { AuthService } from 'src/services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './home/register/register.component';
-import { ErrorInterceptorProvider } from 'src/services/error.interceptor';
-
+import { ErrorInterceptorProvider } from 'src/app/services/error.interceptor';
+import { AlertifyService } from './services/alertify.service';
+import { BsDropdownModule } from 'ngx-bootstrap';
 @NgModule({
    declarations: [
       AppComponent,
@@ -22,11 +23,13 @@ import { ErrorInterceptorProvider } from 'src/services/error.interceptor';
       BrowserModule,
       AppRoutingModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      BsDropdownModule.forRoot()
    ],
    providers: [
       AuthService,
-      ErrorInterceptorProvider
+      ErrorInterceptorProvider,
+      AlertifyService
    ],
    bootstrap: [
       AppComponent
