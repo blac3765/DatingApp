@@ -17,22 +17,22 @@ export class NavComponent implements OnInit {
   }
 
   login() {
-	this.authService.login(this.model).subscribe(next => {
-	  this.alertify.success('Logged in successfully');
-	}, error => {
-	  this.alertify.error(error);
-  }, () => {
-	  this.router.navigate(['/matches']);
+    this.authService.login(this.model).subscribe(next => {
+      this.alertify.success('Logged in successfully');
+    }, error => {
+      this.alertify.error(error);
+    }, () => {
+      this.router.navigate(['/members']);
   });
   }
 
   loggedIn() {
-	return this.authService.loggedIn();
+    return this.authService.loggedIn();
   }
 
   logout() {
-	localStorage.removeItem('token');
-	this.alertify.message('Logged Out');
-	this.router.navigate(['/home']);
+    localStorage.removeItem('token');
+    this.alertify.message('Logged Out');
+    this.router.navigate(['/home']);
   }
 }

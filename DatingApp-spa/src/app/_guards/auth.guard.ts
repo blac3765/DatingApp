@@ -8,14 +8,14 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-	constructor(private authService:AuthService, private router: Router, private alertify: AlertifyService) {}
-	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean  {
-		if(this.authService.loggedIn()) {
-			return true;
-		}
-		this.alertify.error('You shall not pass!!!');
-		this.router.navigate(['/home']);
-		return false;
-	}
+constructor(private authService: AuthService, private router: Router, private alertify: AlertifyService) {}
+canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean  {
+if (this.authService.loggedIn()) {
+return true;
+}
+this.alertify.error('You shall not pass!!!');
+this.router.navigate(['/home']);
+return false;
+}
 
 }
